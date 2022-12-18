@@ -24,59 +24,14 @@ $sql = "SELECT * FROM lista";
     $query = mysqli_query($conexion, $sql);
     
     if($query){
-        header("location: index.php");
+       // header("location: index.php"); Cambié por warning cannot modify header
+        echo '<script type="text/javascript">';
+echo 'window.location.href="index.php";';
+echo '</script>';
     }
 include("header.php");
 ?>
-<h1> Oradores inscriptos </h1>
-        <table class="table table-striped" >
-       <thead>
-            <!--<td> <th>id</th>-->
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Correo</th>
-            <th>Tema</th>
-        </thead>
-        <tbody>
-          
-           <?php 
-            while($fila = mysqli_fetch_assoc($query)){
-                ?>
-                <tr>
-                   <!--<td>
-                        <?php echo $fila["id"]?>
-                    </td> -->
-                    <td>
-                        <?php echo $fila["nombre"]?>
-                    </td>
-                    <td>
-                        <?php echo $fila["apellido"]?>
-                    </td>
-                    <td>
-                        <?php echo $fila["correo"]?>
-                    </td>
-                    <td>
-                        <?php echo $fila["tema"]?>
-                    </td>
-                    <td> <a href="formEditar.php?id=<?php echo $fila["id"]?>">
-                        <button class="btn btn-primary">Modificar</button></a>
-                    </td>
-                    <td><a href="eliminar.php?id=<?php echo $fila["id"]?>" >
-                        <button class="btn btn-danger">Eliminar</button></a>
-                    </td>
-                </tr>
-                <?php
-            } 
-        
-           /* echo "<pre>";
-            print_r($fila);
-            echo "</pre>";*/
-            
-            ?>
-            
-            
-        </body>
-    </table>   
+
      
    
    
