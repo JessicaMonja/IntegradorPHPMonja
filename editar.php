@@ -17,7 +17,10 @@
     $query = mysqli_query($conexion, $sql);
     
     if($query){
-        header("location: index.php");
+        //header("location: index.php");
+         echo '<script type="text/javascript">';
+         echo 'window.location.href="index.php";';
+         echo '</script>';
     }
     
     ?>
